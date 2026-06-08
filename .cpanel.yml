@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - /bin/cp public/index.php /home/u2730282/www/index.php
+    - /bin/cp public/.htaccess /home/u2730282/www/.htaccess
