@@ -21,3 +21,17 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+
+# Planning & agent artifacts (not deployed to server)
+/_bmad/
+/_bmad-output/
+/design-artifacts/
+/docs/
+/test-deploy/
+/.agents/
+/.github/
+/astem_otomasyon/
+astem_otomasyon_prompt.md
+setup-laravel.bat
+logo.png
+logo-1.png
