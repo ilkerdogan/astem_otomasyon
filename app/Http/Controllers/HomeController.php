@@ -10,7 +10,6 @@ class HomeController extends Controller
     {
         $featuredCategories = Category::query()
             ->whereHas('products')
-            ->orderBy('name')
             ->with(['products' => function ($query) {
                 $query->latest('id');
             }])

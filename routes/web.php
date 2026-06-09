@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SitemapController;
@@ -18,6 +19,8 @@ Route::domain('astemotomasyon.com')
     ->withoutMiddleware(StartSession::class)
     ->group(function () {
         Route::get('/', [HomeController::class, 'index'])->name('home');
+        Route::redirect('/kategoriler', '/#kategoriler', 301)->name('categories.index');
+        Route::get('/kategoriler/{slug}', [CategoryController::class, 'show'])->name('categories.show');
         Route::get('/arama', [ProductController::class, 'search'])->name('products.search');
         Route::get('/iletisim', [ContactController::class, 'index'])->name('contact');
     });
@@ -43,6 +46,8 @@ Route::domain('admin.astemotomasyon.com')
 // ─── Local development fallback (php artisan serve) ──────────────────────────
 if (app()->environment('local')) {
     Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::redirect('/kategoriler', '/#kategoriler', 301)->name('categories.index');
+    Route::get('/kategoriler/{slug}', [CategoryController::class, 'show'])->name('categories.show');
     Route::get('/arama', [ProductController::class, 'search'])->name('products.search');
     Route::get('/iletisim', [ContactController::class, 'index'])->name('contact');
 

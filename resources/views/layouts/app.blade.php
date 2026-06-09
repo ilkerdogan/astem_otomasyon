@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
-    <link rel="apple-touch-icon" href="{{ asset('images/logo.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -26,7 +24,6 @@
 
     @yield('og_tags')
 
-    @yield('styles')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-white text-gray-900 antialiased">
@@ -38,7 +35,7 @@
 
                 <!-- Logo -->
                 <a href="/" class="flex items-center gap-2 shrink-0">
-                    <img src="{{ asset('images/logo.png') }}" alt="Astem Otomasyon" class="w-auto" style="height: 80px; max-height: 80px; max-width: 80px;">
+                    <img src="{{ asset('images/logo.png') }}" alt="Astem Otomasyon" class="w-auto" style="height: 56px; max-height: 56px;">
                 </a>
 
                 <!-- Desktop Nav -->
@@ -47,9 +44,6 @@
                     <form method="GET" action="/arama" class="flex items-center">
                         <input type="text" name="q"
                                placeholder="Ürün ara..."
-                               required
-                               oninvalid="this.setCustomValidity('Lütfen bir arama terimi girin.')"
-                               oninput="this.setCustomValidity('')"
                                class="border border-gray-300 rounded-l-lg px-4 h-10 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e3a5f] w-40 md:w-56">
                         <button type="submit"
                                 class="bg-[#1e3a5f] hover:bg-[#162d4a] text-white h-10 px-4 rounded-r-lg text-sm transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#1e3a5f]"
@@ -61,7 +55,7 @@
                     </form>
 
                     <a href="/iletisim"
-                       class="text-sm font-medium text-white bg-[#3b82f6] hover:bg-[#2563eb] px-4 h-10 inline-flex items-center rounded-md transition-colors">
+                       class="text-sm font-medium text-white bg-orange-500 hover:bg-orange-600 px-4 h-10 inline-flex items-center rounded-md transition-colors">
                         İletişim
                     </a>
                 </nav>
@@ -94,11 +88,11 @@
              class="md:hidden border-t border-gray-200 bg-white">
             <div class="px-4 py-3 space-y-1">
                 <a href="/arama"
-                   class="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-[#3b82f6] hover:bg-blue-50">
+                   class="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-orange-500 hover:bg-orange-50">
                     Ürün Ara
                 </a>
                 <a href="/iletisim"
-                   class="block px-3 py-2 rounded-md text-sm font-medium text-white bg-[#3b82f6] hover:bg-[#2563eb]">
+                   class="block px-3 py-2 rounded-md text-sm font-medium text-white bg-orange-500 hover:bg-orange-600">
                     İletişim
                 </a>
             </div>
@@ -124,7 +118,7 @@
 
                 <div>
                     <h3 class="font-semibold text-sm uppercase tracking-wider text-blue-300 mb-3">Hızlı Bağlantılar</h3>
-                    <ul class="space-y-2 text-sm text-white">
+                    <ul class="space-y-2 text-sm text-blue-100">
                         <li><a href="/arama" class="hover:text-white transition-colors">Ürün Ara</a></li>
                         <li><a href="/iletisim" class="hover:text-white transition-colors">İletişim</a></li>
                     </ul>
@@ -132,8 +126,8 @@
 
                 <div>
                     <h3 class="font-semibold text-sm uppercase tracking-wider text-blue-300 mb-3">İletişim</h3>
-                    <ul class="space-y-2 text-sm text-white">
-                        <li><svg class="w-4 h-4 inline mr-1" fill="currentColor" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg> <a href="tel:+905413045011" class="hover:text-white transition-colors">0541 304 50 11</a></li>
+                    <ul class="space-y-2 text-sm text-blue-100">
+                        <li>📞 <a href="tel:+905413045011" class="hover:text-white transition-colors">0541 304 50 11</a></li>
                         <li>✉️ <a href="mailto:info@astemotomasyon.com" class="hover:text-white transition-colors">info@astemotomasyon.com</a></li>
                     </ul>
                 </div>
