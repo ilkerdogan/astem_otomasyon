@@ -1,2 +1,8 @@
 User-agent: *
-Disallow:
+Allow: /
+
+Disallow: /login
+Disallow: /admin
+Disallow: /dashboard
+
+Sitemap: https://astemotomasyon.com/sitemap.xml

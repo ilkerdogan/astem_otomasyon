@@ -4,15 +4,21 @@ use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
 
+// Auto-detect Laravel root:
+// Production: public/ is served from /home/u2730282/www/, Laravel is at ../astem_otomasyon/
+// Local:      public/ is inside the project root, Laravel is at ../
+$laravelRoot = file_exists(__DIR__.'/../astem_otomasyon/vendor/autoload.php')
+    ? __DIR__.'/../astem_otomasyon'
+    : __DIR__.'/..';
+
 // Determine if the application is in maintenance mode...
-// __DIR__ = /home/u2730282/www — Laravel root = /home/u2730282/astem_otomasyon
-if (file_exists($maintenance = __DIR__.'/../astem_otomasyon/storage/framework/maintenance.php')) {
+if (file_exists($maintenance = $laravelRoot.'/storage/framework/maintenance.php')) {
     require $maintenance;
 }
 
 // Register the Composer autoloader...
-require __DIR__.'/../astem_otomasyon/vendor/autoload.php';
+require $laravelRoot.'/vendor/autoload.php';
 
 // Bootstrap Laravel and handle the request...
-(require_once __DIR__.'/../astem_otomasyon/bootstrap/app.php')
+(require_once $laravelRoot.'/bootstrap/app.php')
     ->handleRequest(Request::capture());
