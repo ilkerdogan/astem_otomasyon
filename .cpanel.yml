@@ -1,5 +1,6 @@
 ---
 deployment:
   tasks:
-    - /bin/cp public/index.php /home/u2730282/www/index.php
-    - /bin/cp public/.htaccess /home/u2730282/www/.htaccess
+    - export DEPLOYPATH=/home/u2730282/astem_otomasyon
+    - /bin/cp $DEPLOYPATH/.env.production $DEPLOYPATH/.env
+    - /bin/chmod 640 $DEPLOYPATH/.env
