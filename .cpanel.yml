@@ -1,6 +1,4 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/u2730282/astem_otomasyon
-    - /bin/cp $DEPLOYPATH/.env.production $DEPLOYPATH/.env
-    - /bin/chmod 640 $DEPLOYPATH/.env
+    - /bin/cp /home/u2730282/astem_otomasyon/.env.production /home/u2730282/astem_otomasyon/.env
