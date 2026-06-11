@@ -1,4 +1,10 @@
 ---
 deployment:
   tasks:
+    - export DEPLOYPATH=/home/u2730282/astem_otomasyon/
+    - /bin/cp -R . $DEPLOYPATH
+    - /bin/cp -R public/. /home/u2730282/www/
     - /bin/cp /home/u2730282/astem_otomasyon/.env.production /home/u2730282/astem_otomasyon/.env
+    - cd /home/u2730282/astem_otomasyon && /usr/local/bin/php artisan config:cache
+    - cd /home/u2730282/astem_otomasyon && /usr/local/bin/php artisan route:cache
+    - cd /home/u2730282/astem_otomasyon && /usr/local/bin/php artisan view:cache
