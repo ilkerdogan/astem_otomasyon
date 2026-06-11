@@ -9,8 +9,9 @@
     RewriteCond %{HTTP_HOST} ^www\.astemotomasyon\.com [NC]
     RewriteRule ^ https://astemotomasyon.com%{REQUEST_URI} [L,R=301]
 
-    # Redirect HTTP to HTTPS
+    # Redirect HTTP to HTTPS (admin subdomaini hariç)
     RewriteCond %{HTTPS} off
+    RewriteCond %{HTTP_HOST} !^admin\.astemotomasyon\.com [NC]
     RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
     # Handle Authorization Header
