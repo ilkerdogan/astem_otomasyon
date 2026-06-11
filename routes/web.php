@@ -9,14 +9,12 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CategoryAdminController;
 use App\Http\Controllers\Admin\ProductAdminController;
-use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Route;
 
 // ─── Production: Subdomain routing ───────────────────────────────────────────
 
-// Public site — session middleware exclude (LiteSpeed Cache uyumu)
+// Public site
 Route::domain('astemotomasyon.com')
-    ->withoutMiddleware(StartSession::class)
     ->group(function () {
         Route::get('/', [HomeController::class, 'index'])->name('home');
         Route::redirect('/kategoriler', '/#kategoriler', 301)->name('categories.index');

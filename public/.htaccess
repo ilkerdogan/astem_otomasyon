@@ -5,6 +5,14 @@
 
     RewriteEngine On
 
+    # Redirect www to non-www (önce www'yi temizle)
+    RewriteCond %{HTTP_HOST} ^www\.astemotomasyon\.com [NC]
+    RewriteRule ^ https://astemotomasyon.com%{REQUEST_URI} [L,R=301]
+
+    # Redirect HTTP to HTTPS
+    RewriteCond %{HTTPS} off
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
